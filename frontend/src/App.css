@@ -1,0 +1,183 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  overflow: visible !important;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* תיקון בעיות stacking - החלק החשוב */
+
+/* ודא שכל האלמנטים עם overflow יראו את התוכן */
+.container,
+.mx-auto,
+.bg-zinc-950,
+.flex-col,
+.kanban-column {
+  overflow: visible !important;
+}
+
+/* תיקון ל-flip animations */
+.flip-container {
+  perspective: 1000px !important;
+  overflow: visible !important;
+}
+
+.flip-inner {
+  transform-style: preserve-3d !important;
+  overflow: visible !important;
+}
+
+.flip-front,
+.flip-back {
+  -webkit-backface-visibility: hidden !important;
+  backface-visibility: hidden !important;
+  overflow: visible !important;
+}
+
+.flip-back {
+  transform: rotateY(180deg) !important;
+}
+
+/* ודא שכל כרטיס יוצר stacking context נפרד */
+.listing-card-wrapper {
+  isolation: isolate !important;
+  position: relative !important;
+  overflow: visible !important;
+}
+
+/* תיקון ל-DragOverlay */
+.drag-overlay {
+  z-index: 9999 !important;
+  pointer-events: none !important;
+  position: relative !important;
+}
+
+/* תיקון ל-tooltips */
+.tooltip {
+  z-index: 10000 !important;
+  position: absolute !important;
+  overflow: visible !important;
+}
+
+/* ודא שלא ה-grid או flexbox דורסים */
+.flex,
+.flex-row,
+.flex-col {
+  isolation: auto !important;
+  overflow: visible !important;
+}
+
+/* תיקון ל-sticky headers */
+.sticky {
+  z-index: 100 !important;
+}
+
+/* תיקון כללי לכל האלמנטים שעלולים לחתוך */
+.min-h-screen,
+.bg-gray-50,
+.bg-zinc-950 {
+  overflow: visible !important;
+}
+
+/* תיקון ספציפי ל-hover effects */
+.hover\\:-translate-y-1:hover {
+  z-index: 999 !important;
+}
+
+/* ודא שה-transform לא משפיע על stacking */
+.transform {
+  isolation: isolate;
+}
+
+/* תיקון לאנימציות */
+.transition-all,
+.transition-transform,
+.transition-colors {
+  isolation: auto;
+}
+
+/* תיקון ל-shadow שעלול להפריע */
+.shadow-lg,
+.shadow-xl {
+  isolation: auto;
+}
+
+/* התיקון הסופי לבעיית stacking ב-hover */
+
+/* כרטיס ב-hover יקבל z-index גבוה */
+.listing-card-wrapper:hover {
+  z-index: 999 !important;
+}
+
+/* ודא שההאובר לא יוצר stacking context חדש שדורס */
+.bg-white:hover {
+  z-index: inherit !important;
+  position: relative !important;
+}
+
+/* תיקון ל-transform שיוצר stacking context */
+.hover\\:-translate-y-1:hover {
+  z-index: 1000 !important;
+  transform: translateY(-0.25rem) !important;
+  position: relative !important;
+}
+
+/* ודא שהshadow לא יוצר בעיות */
+.hover\\:shadow-xl:hover {
+  z-index: inherit !important;
+}
+
+/* תיקון גלובלי לכל הhover effects */
+.transition-all:hover {
+  z-index: inherit !important;
+}
+
+/* כלל חירום - כל כרטיס שמקבל hover */
+.listing-card-wrapper:hover > * {
+  z-index: 1000 !important;
+  position: relative !important;
+}
+
+/* ודא שהכרטיס שנמצא בhover תמיד יהיה הכי גבוה */
+.listing-card-wrapper:hover {
+  isolation: isolate !important;
+  position: relative !important;
+  z-index: 1001 !important;
+}
