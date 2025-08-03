@@ -4,7 +4,7 @@
   "description": "Backend for apartment scanner application",
   "main": "dist/index.js",
   "scripts": {
-    "start": "node dist/index.js",
+    "start": "node --import tsx src/index.ts",
     "dev": "tsx watch src/index.ts",
     "build": "tsc",
     "lint": "eslint src/**/*.ts",
@@ -30,6 +30,7 @@
     "node-cron": "^3.0.2",
     "nodemailer": "^6.9.4",
     "puppeteer": "^21.1.1",
+    "puppeteer-core": "^21.3.8",
     "puppeteer-extra": "^3.3.6",
     "puppeteer-extra-plugin-stealth": "^2.11.2"
   },
