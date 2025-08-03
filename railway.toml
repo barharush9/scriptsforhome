@@ -1,0 +1,6 @@
+[build]
+  root = "backend"
+  buildCommand = "npm install && npm run build"
+
+[deploy]
+  startCommand = "npm start"
